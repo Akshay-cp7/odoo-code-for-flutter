@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_of_student_root"
+    name="Student management y"/>
+
+    <menuitem id="data_of_student"
+    name="Student data"
+    parent="menu_of_student_root"
+    
+    />
+
+    <menuitem id="name_of_student"
+    name="Edit Student"
+    parent="data_of_student"
+    action="action_student_view"
+    />
+
+    <menuitem id="view_student"
+    name="View Student"
+    parent="data_of_student"
+    action="action_student_view_on"
+    />
+    
+ 
+</odoo>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_on_student_tree" model="ir.ui.view">
+        <field name="name">Student_tree</field>
+        <field name="model">collage.student</field>
+        <field name="arch" type="xml">
+            <tree string="students" create="0" delete="0" edit="0">
+                <field name="name"/>
+                <field name="date_of_birth"/>
+                <field name="gender"/>
+                <field name="dept"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_on_student_form" model="ir.ui.view">
+        <field name="name">Student_form</field>
+        <field name="model">collage.student</field>
+        <field name="arch" type="xml">
+            <form string="students" create="0" delete="0" edit="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date_of_birth"/>
+                            <field name="dept"/>
+                        </group>
+                        
+                    </group>
+                </sheet>
+                <sheet>
+                    <group>
+                        
+                        <field name="gender"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_student_view_on" model="ir.actions.act_window">
+        <field name="name">Student_data</field>
+        <field name="res_model">collage.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('view_on_student_tree')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('view_on_student_form')})]"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No Name of student found
+            </p><p>
+                The names arent filled yet.
+            </p>
+        </field>
+    </record>
+</odoo>

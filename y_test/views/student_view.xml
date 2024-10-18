@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_student_tree" model="ir.ui.view">
+        <field name="name">Student_tree</field>
+        <field name="model">collage.student</field>
+        <field name="arch" type="xml">
+            <tree string="students">
+                <field name="name"/>
+                <field name="date_of_birth"/>
+                <field name="gender"/>
+                <field name="dept"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_student_form" model="ir.ui.view">
+        <field name="name">Student_form</field>
+        <field name="model">collage.student</field>
+        <field name="arch" type="xml">
+            <form string="students">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="date_of_birth"/>
+                            <field name="dept"/>
+                        </group>
+                        
+                    </group>
+                </sheet>
+                <sheet>
+                    <group>
+                        
+                        <field name="gender"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" groups="base.group_user"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="action_student_view" model="ir.actions.act_window">
+        <field name="name">Student_data</field>
+        <field name="res_model">collage.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                No Name of student found
+            </p><p>
+                The names arent filled yet.
+            </p>
+        </field>
+    </record>
+</odoo>
